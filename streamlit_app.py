@@ -27,7 +27,7 @@ def load_data(openai_api_key):
         # documents = pdf_table_reader.load_data(file=pdf_table_path2, pages='all')
         # docs = docs + documents
 
-        pdf_reader = download_loader("PDFReader")
+        pdf_reader = download_loader("PDFReader", custom_path="./local")
         pdf_path = Path('./data/steps_to_food_safety.pdf')
         loader = pdf_reader()
         documents = loader.load_data(file=pdf_path)
