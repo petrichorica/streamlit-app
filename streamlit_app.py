@@ -28,12 +28,12 @@ def load_data(openai_api_key):
         # docs = docs + documents
 
         pdf_reader = download_loader("PDFReader")
-        pdf_path = Path('E:\streamlit\streamlit-app\data\steps_to_food_safety.pdf')
+        pdf_path = Path('./data/steps_to_food_safety.pdf')
         loader = pdf_reader()
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
-        pdf_path = Path('E:\streamlit\streamlit-app\data\Cutting Boards.pdf')
+        pdf_path = Path('./data/Cutting Boards.pdf')
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
