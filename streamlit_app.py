@@ -37,7 +37,7 @@ def load_data(openai_api_key):
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
-        pdf_path = Path('E:\streamlit\streamlit-app\data\Food Storage Guide.pdf')
+        pdf_path = Path('./data/Food Storage Guide.pdf')
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
