@@ -3,7 +3,7 @@ from llama_index import VectorStoreIndex, ServiceContext
 from llama_index.llms import OpenAI
 import openai
 from llama_index import download_loader
-from llama_hub.pdf_table.base import PDFTableReader
+# from llama_hub.pdf_table.base import PDFTableReader
 from pydantic import BaseModel, Field
 from pathlib import Path
 
@@ -16,16 +16,16 @@ def load_data(openai_api_key):
     # target_path_1 = os.path.join(os.path.dirname(__file__), 'target_1.txt')
     with st.spinner(text="Loading and indexing the docs about food safety - hang tight! This should take 1-2 minutes."):
         docs = []
-        pdf_table_reader = PDFTableReader()
-        pdf_table_path1 = Path('E:\streamlit\streamlit-app\data\Cold Food Storage Chart.pdf')
-        path = Path('./data/Cold Food Storage Chart.pdf').resolve()
-        print("absolute path: ", path.__str__)
-        documents = pdf_table_reader.load_data(file=pdf_table_path1, pages='all')
-        docs = docs + documents
+        # pdf_table_reader = PDFTableReader()
+        # pdf_table_path1 = Path('E:\streamlit\streamlit-app\data\Cold Food Storage Chart.pdf')
+        # path = Path('./data/Cold Food Storage Chart.pdf').resolve()
+        # print("absolute path: ", path.__str__)
+        # documents = pdf_table_reader.load_data(file=pdf_table_path1, pages='all')
+        # docs = docs + documents
 
-        pdf_table_path2 = Path('E:\streamlit\streamlit-app\data\Food Safety During Power Outage.pdf')
-        documents = pdf_table_reader.load_data(file=pdf_table_path2, pages='all')
-        docs = docs + documents
+        # pdf_table_path2 = Path('E:\streamlit\streamlit-app\data\Food Safety During Power Outage.pdf')
+        # documents = pdf_table_reader.load_data(file=pdf_table_path2, pages='all')
+        # docs = docs + documents
 
         pdf_reader = download_loader("PDFReader")
         pdf_path = Path('E:\streamlit\streamlit-app\data\steps_to_food_safety.pdf')
@@ -34,6 +34,10 @@ def load_data(openai_api_key):
         docs = docs + documents
 
         pdf_path = Path('E:\streamlit\streamlit-app\data\Cutting Boards.pdf')
+        documents = loader.load_data(file=pdf_path)
+        docs = docs + documents
+
+        pdf_path = Path('E:\streamlit\streamlit-app\data\Food Storage Guide.pdf')
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
