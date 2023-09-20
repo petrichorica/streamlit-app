@@ -17,23 +17,21 @@ def load_data(openai_api_key):
     with st.spinner(text="Loading and indexing the docs about food safety - hang tight! This should take 1-2 minutes."):
         docs = []
         pdf_table_reader = PDFTableReader()
-        pdf_table_path1 = Path('E:\streamlit\streamlit-app\data\Cold Food Storage Chart.pdf')
-        path = Path('./data/Cold Food Storage Chart.pdf').resolve()
-        print("absolute path: ", path.__str__)
+        pdf_table_path1 = Path('./data/Cold Food Storage Chart.pdf')
         documents = pdf_table_reader.load_data(file=pdf_table_path1, pages='all')
         docs = docs + documents
 
-        pdf_table_path2 = Path('E:\streamlit\streamlit-app\data\Food Safety During Power Outage.pdf')
+        pdf_table_path2 = Path('./data/Food Safety During Power Outage.pdf')
         documents = pdf_table_reader.load_data(file=pdf_table_path2, pages='all')
         docs = docs + documents
 
         pdf_reader = download_loader("PDFReader")
-        pdf_path = Path('E:\streamlit\streamlit-app\data\steps_to_food_safety.pdf')
+        pdf_path = Path('./data/steps_to_food_safety.pdf')
         loader = pdf_reader()
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
-        pdf_path = Path('E:\streamlit\streamlit-app\data\Cutting Boards.pdf')
+        pdf_path = Path('./data/Cutting Boards.pdf')
         documents = loader.load_data(file=pdf_path)
         docs = docs + documents
 
